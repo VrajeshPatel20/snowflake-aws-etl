@@ -1,4 +1,4 @@
-from src.snowflake_azure_etl_tools.utils.base.base_hook import BaseHook
+from src.snowflake_azure_etl_tools.utils.base import BaseHook
 
 class PolygonHook(BaseHook):
     """

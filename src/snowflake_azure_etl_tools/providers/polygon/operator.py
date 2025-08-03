@@ -1,4 +1,4 @@
-from src.snowflake_azure_etl_tools.utils.base.base_operator import BaseOperator
+from src.snowflake_azure_etl_tools.utils.base import BaseOperator
 
 
 class PolygonOperator(BaseOperator):
