@@ -1,4 +1,4 @@
-from src.snowflake_azure_etl_tools.utils.common.base import Base
+from src.snowflake_azure_etl_tools.utils.base.base import Base
 from abc import ABC, abstractmethod
 class BaseHook(Base, ABC):
     def __init__(self, **kwargs):

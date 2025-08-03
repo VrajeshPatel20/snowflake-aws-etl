@@ -1,4 +1,4 @@
-from src.snowflake_azure_etl_tools.utils.hooks.base import BaseHook
+from src.snowflake_azure_etl_tools.utils.base.base_hook import BaseHook
 
 class PolygonHook(BaseHook):
     """
@@ -13,8 +13,8 @@ class PolygonHook(BaseHook):
         super().__init__(**kwargs)
         self.api_key = self.read_file(self.get_config("polygon", section="api_key_path"))
 
-
-    def read_file(self, file_path):
+    @staticmethod
+    def read_file(file_path):
         """
         Read the content of a file.
 
@@ -26,6 +26,6 @@ class PolygonHook(BaseHook):
         """
         with open(file_path, 'r') as file:
             return file.read()
-    # def get_
+
     def execute(self):
         pass
