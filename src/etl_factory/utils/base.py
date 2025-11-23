@@ -1,15 +1,15 @@
-from src.snowflake_azure_etl_tools.config.config_loader import config
+from etl_factory.config.config_loader import config
 from abc import ABC, abstractmethod
 
 class Base:
     def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+        # super().__init__()
         for key, value in kwargs.items():
             setattr(self, key, value)
 
     @staticmethod
-    def get_config(key, section):
-        return config.get_value(key=key, section=section)
+    def get_config(key, section, fallback=None):
+        return config.get_value(section=section, key=key, fallback=fallback)
 
 
 class BaseHook(Base, ABC):

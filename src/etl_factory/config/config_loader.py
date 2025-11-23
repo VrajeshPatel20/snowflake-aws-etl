@@ -17,12 +17,21 @@ def remove_quotes(d):
 class EnvConfigLoader:
     def __init__(self, config_dir=None):
 
-        config_dir = config_dir or Path(__file__).parent / "config"
+        config_dir = Path(__file__).parent
         self.file_path = Path(config_dir) / f"{env}.ini"
-        self.config = configparser.ConfigParser()
+        self.config = configparser.ConfigParser(interpolation=None)
+        print (self.file_path)
+        print(config_dir)
         self.config.read(self.file_path)
 
     def get_value(self, section, key, fallback=None):
-        return self.config.get(section, key, fallback=fallback)
+        try:
+            return self.config.get(section, key, fallback=fallback)
+        except configparser.NoSectionError:
+            # If section doesn't exist and fallback is provided, return fallback
+            # Otherwise, raise the error
+            if fallback is not None:
+                return fallback
+            raise
 
 config = EnvConfigLoader()

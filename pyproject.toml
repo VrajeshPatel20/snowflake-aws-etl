@@ -1,18 +1,15 @@
 [project]
-name = "snowflake-azure-etl-tools"
+name = "etl_factory"
 version = "0.0.0.dev1"
 dependencies = [
   "pandas",
   "numpy",
-  "polygon (>=1.2.6,<2.0.0)",
+  "polygon-api-client",
+  "praw",
+  "tweepy",
+  "openai",
+  "anthropic"
 ]
-packages = [{"include"="snowflake_azure_etl_tools", "from"= "src"}]
-#    "exclude": [
-#        "tests",
-#        "tests.*",
-#        "docs",
-#        "docs.*",
-#    ],
 
 requires-python = ">=3.9"
 description = "Test Extract Transform Load pipeline using AWS and Snowflake"
@@ -47,3 +44,7 @@ Homepage = "https://github.com/VrajeshPatel20/snowflake-aws-etl/"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatchling.build.targets.wheel]
+packages = ["src/etl_factory"]
+#  "polygon==1.15.3",
